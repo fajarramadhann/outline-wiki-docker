@@ -17,16 +17,16 @@ install: env.outline env.minio env.slack init-data-dirs
 	@echo "=>run 'make start' and your server should be ready shortly."
 
 start: install
-	docker-compose up -d
+	docker compose up -d
 
 logs:
-	docker-compose logs -f
+	docker compose logs -f
 
 stop:
-	docker-compose down || true
+	docker compose down || true
 
 clean-docker: stop
-	docker-compose rm -fsv || true
+	docker compose rm -fsv || true
 
 clean-conf:
 	rm -rfv data/certs/* env.*
